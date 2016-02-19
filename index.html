@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="js/knockout-3.4.0.js"></script>
+
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
+                MENU
+            </button>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                PriceTracker
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left" method="GET" role="search">
+                <div class="form-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search"
+                           data-bind="value: searchQuery, valueUpdate: 'afterkeydown', enterPress: searchItems">
+                </div>
+                <button data-bind="click: searchItemsByTitle" class="btn btn-default"><i
+                        class="glyphicon glyphicon-search"></i></button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" target="_blank">Visit Site</a></li>
+                <li class="dropdown ">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        Account
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header">SETTINGS</li>
+                        <li class=""><a href="#">Other Link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid main-container">
+    <div class="col-md-2 sidebar">
+        <div class="row">
+            <div class="absolute-wrapper"></div>
+            <!-- Menu -->
+            <div class="side-menu">
+                <nav class="navbar navbar-default" role="navigation">
+                    <!-- Main Menu -->
+                    <div class="side-menu-container">
+                        <ul class="nav navbar-nav">
+                            <li data-bind="click: toBestbuy"><a><span
+                                    class="glyphicon glyphicon-cloud"></span>Bestbuy</a></li>
+                            <li data-bind="click: toMicrosoft"><a><span class="glyphicon glyphicon-cloud"></span>Microsoft</a>
+                            </li>
+                            <li data-bind="click: toStaples"><a><span
+                                    class="glyphicon glyphicon-cloud"></span>Staples</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10 content">
+        <div data-bind="foreach: items">
+            <div class="panel panel-default col-md-4" style="padding: 0">
+                <div class="panel-heading" data-bind="text: title">
+                </div>
+                <div class="panel-body">
+                    <p>URL: <h5 data-bind="text: url"></h5>
+                    Price:
+                    <li data-bind="text: price"></li>
+                    Dropped:
+                    <li data-bind="text: drop"></li>
+                    Store:
+                    <li data-bind="text: store"></li>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="pull-left footer">
+            <p class="col-md-12">
+            <hr class="divider">
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
