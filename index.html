@@ -92,23 +92,17 @@
         </div>
     </div>
     <div class="col-md-10 content">
-        <div data-bind="foreach: items">
-            <div class="panel panel-default col-md-4" style="padding: 0">
-                <div class="panel-heading" data-bind="text: title">
-                </div>
-                <div class="panel-body">
-                    <p>URL: <h5 data-bind="text: url"></h5>
-                    Price:
-                    <li data-bind="text: price"></li>
-                    Dropped:
-                    <li data-bind="text: drop"></li>
-                    Store:
-                    <li data-bind="text: store"></li>
-                    </p>
-                </div>
-            </div>
-        </div>
+        <button data-bind='click: sortByTitle'>
+            Sort by title
+        </button>
+        <button data-bind='click: sortByDrop'>
+            Sort by drop
+        </button>
 
+        <div data-bind='simpleGrid: gridViewModel'> </div>
+        <button data-bind='click: jumpToFirstPage, enable: gridViewModel.currentPageIndex'>
+            Jump to first page
+        </button>
         <footer class="pull-left footer">
             <p class="col-md-12">
             <hr class="divider">
